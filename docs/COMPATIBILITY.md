@@ -10,7 +10,7 @@
 | SSH target control | Strict key checks, explicit app-local key rotation and authenticated inventory | Existing keys or ephemeral password; root/reboot needs separate consent/sudo authorization |
 | Automatic discovery | Windows/macOS/Linux parsers; bounded interface-scoped probes; IPv6 and collision-aware plans | Preview; SSH and reachable networking remain necessary |
 | Automatic ASUS diagnostics | Read-only temporary RAM observer; token/image/session bindings; generated against actual pinned initrd | Preview; new diagnostic hardware boot trial required |
-| Dell GB10 FCM1253 | Official WW / US OTA3 downloads, checksums, initrd and disk-targeting scripts inspected; separate profiles | Media-inspected Ethernet preview; physical Dell reset unqualified |
+| Dell GB10 FCM1253 | Official WW / US OTA3 downloads, checksums, initrd and disk-targeting scripts inspected; separate profiles | Windows WW terminal trial reached first-time setup; US and automatic flow unqualified; see [Dell evidence](DELL.md) |
 | NVIDIA DGX Spark Founders Edition | Separate identity and FastOS recovery path | Recognized; own image adapter not implemented |
 | HP ZGX / Lenovo PGX / MSI EdgeXpert | Model recognition and manufacturer support routing | No qualified image/erase adapter |
 

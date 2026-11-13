@@ -1,6 +1,6 @@
 # MKD Spark Recovery desktop
 
-The app adds guided recovery, automatic discovery and local timing reports. Terminal commands remain available. **ASUS GX10 and Dell FCM1253 use separate image profiles.** Dell WW/US images were inspected offline; a physical Dell Ethernet reset remains unqualified. Other manufacturers get their own recovery guidance. Start with the [0.3 automatic workflow](AUTOMATION.md) and [Dell evidence](DELL.md). A separate computer, isolated Ethernet cable and target monitor/keyboard remain required.
+The app adds guided recovery, automatic discovery and local timing reports. Terminal commands remain available. **ASUS GX10 and Dell FCM1253 use separate image profiles.** Dell WW/US images were inspected offline; Windows WW terminal recovery has now reached first-time setup, while the automatic desktop flow and US media remain unqualified. Other manufacturers get their own recovery guidance. Start with the [0.3 automatic workflow](AUTOMATION.md) and [Dell evidence](DELL.md). A separate computer, isolated Ethernet cable and target monitor/keyboard remain required.
 
 ## Install
 

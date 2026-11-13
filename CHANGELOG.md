@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased — Dell physical trial notes, 2026-11-13
+
+- Record one Windows-hosted Dell FCM1253 Worldwide terminal reinstall reaching first-time setup, and operator-confirmed successful installation on a second Dell.
+- Add Dell-specific guidance for separate target sessions, IPv6-only discovery, Windows ICS port/address conflicts, PowerShell logging, firmware keys, signature rejection, diagnostic checks and quiet package installation.
+- Update Dell capability text and evidence limits without changing ASUS profiles, boot arguments, installer code or defaults. US media and the automatic desktop flow remain unqualified.
+- Add regression coverage rejecting reuse of diagnostic/erase authorization across two Dell targets.
+
 ## 0.3.1 Windows helper status hotfix — 2026-10-27
 
 - Grant the session owner's explicit Windows SID inheritable access before elevation, so output written by a different administrator remains readable by the normal app. Do not grant broad Users/Everyone access.

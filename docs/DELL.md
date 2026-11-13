@@ -1,6 +1,6 @@
 # Dell GB10 FCM1253: inspected media, experimental Ethernet recovery
 
-Inspected on 2026-10-27. This is an independent community adapter. Dell's [official recovery guide](https://www.dell.com/support/kbdoc/en-us/000382042/how-to-reinstall-the-nvidia-dgx-operating-system-on-dell-pro-max-with-grace-blackwell-systems) documents USB recovery. **No physical Dell Ethernet reset has been completed for this project.** Preparation and image inspection are not hardware qualification.
+Media inspected on 2026-10-27; physical trial updated on 2026-11-13. This is an independent community adapter. Dell's [official recovery guide](https://www.dell.com/support/kbdoc/en-us/000382042/how-to-reinstall-the-nvidia-dgx-operating-system-on-dell-pro-max-with-grace-blackwell-systems) documents USB recovery. **One Windows-hosted Worldwide terminal recovery reached Dell first-time setup.** This does not qualify every firmware, host OS, US image, or automatic desktop flow. See [the trial and troubleshooting notes](DELL-TROUBLESHOOTING.md).
 
 ## Official artifacts
 
@@ -23,6 +23,6 @@ The app matches Dell plus **FCM1253**, then asks for WW/US and explicit preview 
 
 ## Remaining qualification
 
-On actual Dell hardware, first verify the non-erasing diagnostic boot and observer report, firmware/Secure Boot behavior, target MAC and SSD identity. A destructive trial requires backups and separate erase consent. Record installation completion, regional first-run setup, first boot and host-network cleanup. Until those trials are recorded, the Dell path remains a media-inspected preview on every host OS.
+For each Dell, verify the non-erasing diagnostic boot, firmware/Secure Boot behavior, target MAC and SSD identity. The successful trial used the original initrd and operator-verified shell checks; it does not qualify the derived automatic observer. A destructive trial requires backups and separate erase consent. The first tested Dell reached first-time setup; account setup, post-setup GPU validation and final host-network cleanup were not completed in that observation. A second Dell passed diagnostics and the operator subsequently confirmed successful installation. US media, macOS/Linux hosts and the full automatic flow remain unqualified.
 
 NVIDIA [limits its Founders recovery media to Founders Edition](https://docs.nvidia.com/dgx/dgx-spark/system-recovery.html). Founders, ASUS, Dell and other OEM images are never interchangeable.

@@ -29,7 +29,8 @@ PROFILES = {
         "https://www.dell.com/support/kbdoc/en-us/000382042/how-to-reinstall-the-nvidia-dgx-operating-system-on-dell-pro-max-with-grace-blackwell-systems",
         "https://www.dell.com/support/product-details/en-us/product/dell-pro-max-fcm1253-micro/drivers",
         "media-inspected-preview", "Dell's WW and US OTA3 images were downloaded, checksum-verified and inspected offline. "
-        "Dell documents USB recovery; this Ethernet adapter has not completed a physical Dell reset test. "
+        "Dell documents USB recovery. A Windows-hosted WW terminal reinstall reached first-time setup; "
+        "US media and the automatic desktop flow remain unqualified. "
         "Select the region matching your Dell device; never substitute ASUS or Founders media."),
     "nvidia-founders": OEMProfile("nvidia-founders", "NVIDIA", "DGX Spark Founders Edition", "fastos-pxe", None,
         "https://docs.nvidia.com/dgx/dgx-spark/system-recovery.html",

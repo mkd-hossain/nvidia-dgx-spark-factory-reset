@@ -11,7 +11,7 @@ from spark_recovery.images import prepare
 from spark_recovery.menu import render
 from spark_recovery.oem import detect_oem
 from spark_recovery.profiles import ASUS, DELL_WW, DELL_US
-from spark_recovery.safety import image_manifest, validate_inventory
+from spark_recovery.safety import attest, authorize, check_active_menu, image_manifest, validate_inventory
 
 
 def test_dell_requires_exact_model_and_matching_oem(session):
@@ -27,6 +27,32 @@ def test_dell_requires_exact_model_and_matching_oem(session):
         validate_inventory(inventory, dell, "/dev/nvme0n1", "TEST")
     with pytest.raises(RecoveryError):
         detect_oem({"machine": "arm64", "board": ["Dell GB10 unknown model"]})
+
+
+def test_second_dell_cannot_reuse_first_dell_receipts(prepared, session, monkeypatch):
+    first = replace(session, profile=DELL_WW["id"])
+    manifest = json.loads((prepared / "image.json").read_text())
+    monkeypatch.setitem(DELL_WW, "iso_sha256", manifest["iso_sha256"])
+    manifest.update(session=first.fingerprint, profile=first.profile)
+    atomic_json(prepared / "image.json", manifest)
+    inventory = json.loads((prepared / "target.json").read_text())
+    inventory["board"] = ["Dell Inc.", "FCM1253"]
+    atomic_json(prepared / "target.json", inventory)
+    attest(prepared, first, "VERIFIED " + first.target_mac)
+    authorize(prepared, first, "/dev/nvme0n1", "TEST-SERIAL",
+              "ERASE " + first.target_mac + " TEST-SERIAL")
+
+    second = replace(first, target_mac="02:00:00:00:00:02", session_id="b" * 32)
+    with pytest.raises(RecoveryError, match="different session"):
+        image_manifest(prepared, second)
+    # Even a freshly rebound image cannot make the first device's receipts valid.
+    manifest["session"] = second.fingerprint
+    atomic_json(prepared / "image.json", manifest)
+    with pytest.raises(RecoveryError, match="different target/image"):
+        authorize(prepared, second, "/dev/nvme0n1", "TEST-SERIAL",
+                  "ERASE " + second.target_mac + " TEST-SERIAL")
+    with pytest.raises(RecoveryError, match="authorization changed"):
+        check_active_menu(prepared, second, manifest)
 
 
 def test_region_receipt_cannot_be_reused(prepared, session):

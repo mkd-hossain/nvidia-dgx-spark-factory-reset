@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased — Dell physical trial notes, 2026-11-13
+## 0.3.2 — Dell physical trial notes, 2026-11-13
 
 - Record one Windows-hosted Dell FCM1253 Worldwide terminal reinstall reaching first-time setup, and operator-confirmed successful installation on a second Dell.
 - Add Dell-specific guidance for separate target sessions, IPv6-only discovery, Windows ICS port/address conflicts, PowerShell logging, firmware keys, signature rejection, diagnostic checks and quiet package installation.
